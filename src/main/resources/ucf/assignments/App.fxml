@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~ UCF COP3330 Summer 2021 Assignment 5 Solution
+  ~ Copyright 2021 rielly donnell
+  -->
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TableView prefHeight="276.0" prefWidth="611.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="311.0" text="Name" />
+          <TableColumn fx:id="colSerialNumber" minWidth="0.0" prefWidth="170.0" text="Serial Number" />
+            <TableColumn fx:id="colValue" prefWidth="118.0" text="Value" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="89.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="89.0" prefWidth="627.0">
+               <children>
+                  <Label fx:id="lblAddInventoryItem" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="627.0" text="Add Inventory Item" underline="true">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="txtNewItemName" promptText="New Item Name" />
+                        <TextField fx:id="txtNewItemSerialNumber" promptText="New Item Serial Number" />
+                        <TextField fx:id="txtNewItemValue" promptText="New Item Value (0.00)" />
+                        <Button mnemonicParsing="false" text="Add" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="341.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnLoad" mnemonicParsing="false" text="Load" />
+                        <Button fx:id="btnSaveTSV" mnemonicParsing="false" text="Save as TSV" />
+                        <Button fx:id="btnSaveHTML" mnemonicParsing="false" text="Save as HTML" />
+                        <Button fx:id="btnSaveJSON" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Save as JSON" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="272.0" spacing="10.0">
+                     <children>
+                        <Label text="Search">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtSearch" promptText="Name or Serial Number" />
+                        <Button fx:id="btnSearch" mnemonicParsing="false" text="Search" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

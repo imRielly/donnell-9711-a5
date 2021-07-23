@@ -1,0 +1,42 @@
+'   UCF COP3330 Summer 2021 Assignment 5 Solution
+'   Copyright 2021 rielly donnell
+
+@startuml
+'https://plantuml.com/class-diagram
+
+App -- AppModel
+AppModel -- AppController
+AppModel -- Inventory
+Inventory -- Item
+
+class App {
+    root: Parent
+    scene: Scene
+
+    main()
+    start()
+}
+
+class AppController {
+}
+
+class AppModel {
+    inventory: Inventory
+
+    getInventory()
+    setInventory()
+}
+
+class Inventory {
+    items: Set
+
+    getItems()
+    setItems()
+    addItem()
+    removeItem()
+}
+
+class Item {
+}
+
+@enduml
