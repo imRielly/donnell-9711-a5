@@ -71,7 +71,7 @@ public class AppController implements Initializable {
         colSerialNumber.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
         colValue.setCellValueFactory(new PropertyValueFactory<>("value"));
 
-        if (!appModel.getInventory().Inventory.isEmpty()) {
+        if (!appModel.getInventory().item.isEmpty()) {
             tableView.setItems(getListForTable(appModel.getInventory()));
             tableView.setEditable(true);
         }

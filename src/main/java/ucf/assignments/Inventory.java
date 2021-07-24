@@ -7,21 +7,26 @@
 
 package ucf.assignments;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Inventory {
-    Set<Item> Inventory;
+    Set<Item> item;
+
+    public Inventory(){
+        this.item = new HashSet<>();
+    }
 
     public Inventory(Set<Item> inventory) {
-        Inventory = inventory;
+        this.item = inventory;
     }
 
     public Set<Item> getInventory() {
-        return Inventory;
+        return item;
     }
 
-    public void setInventory(Set<Item> inventory) {
-        Inventory = inventory;
+    public void setInventory(Set<Item> inv) {
+        item = inv;
     }
 
     public void addItem(Item item){

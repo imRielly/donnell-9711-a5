@@ -11,7 +11,7 @@ public class AppModel {
     Inventory inventory;
 
     public AppModel() {
-        this.inventory =
+        this.inventory = new Inventory();
     }
 
     public Inventory getInventory() {
