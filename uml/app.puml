@@ -18,6 +18,24 @@ class App {
 }
 
 class AppController {
+    appModel: AppModel
+
+    tableView: TableView
+    colName: TableColumn<Item, SimpleStringProperty>
+    colSerialNumber: TableColumn<Item, SimpleStringProperty>
+    colValue: TableColumn<Item, SimpleDoubleProperty>
+
+    inventoryView: ObservableList
+
+    txtSearch: TextField
+    txtNewItemName: TextField
+    txtNewItemSerialNumber: TextField
+    txtNewItemValue: TextField
+
+    validateName()
+    validateSerialNumber()
+    validateValue()
+
 }
 
 class AppModel {
@@ -25,6 +43,10 @@ class AppModel {
 
     getInventory()
     setInventory()
+
+    getTSV()
+    getHTML()
+    getJSON()
 }
 
 class Inventory {
@@ -32,11 +54,23 @@ class Inventory {
 
     getItems()
     setItems()
+
     addItem()
     removeItem()
 }
 
 class Item {
+    name: SimpleStringProperty
+    serialNumber: SimpleStringProperty
+    value: SimpleDoubleProperty
+
+    getName()
+    getSerialNumber()
+    getValue()
+
+    setName()
+    setSerialNumber()
+    setValue()
 }
 
 @enduml
