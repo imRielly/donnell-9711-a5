@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class App extends Application {
     public static void main(String[] args) {
@@ -19,9 +20,9 @@ public class App extends Application {
     }
 
     public void start(Stage primaryStage){
-        Parent root = null;
+        Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("App.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("App.fxml")));
 
             Scene scene = new Scene(root);
 

@@ -7,17 +7,19 @@
 
 package ucf.assignments;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DoubleStringConverter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static java.lang.Double.parseDouble;
 
 public class AppController implements Initializable {
 
@@ -27,13 +29,13 @@ public class AppController implements Initializable {
     private TableView<Item> tableView;
     
     @FXML
-    private TableColumn<Item, SimpleStringProperty> colName;
+    private TableColumn<Item, String> colName = new TableColumn<>();
 
     @FXML
-    private TableColumn<Item, SimpleStringProperty> colSerialNumber;
+    private TableColumn<Item, String> colSerialNumber = new TableColumn<>();
 
     @FXML
-    private TableColumn<Item, SimpleDoubleProperty> colValue;
+    private TableColumn<Item, Double> colValue = new TableColumn<>();
 
     @FXML
     private Label lblAddInventoryItem;
@@ -46,6 +48,9 @@ public class AppController implements Initializable {
 
     @FXML
     private TextField txtNewItemValue;
+
+    @FXML
+    private Button btnAdd;
 
     @FXML
     private Button btnLoad;
@@ -65,15 +70,39 @@ public class AppController implements Initializable {
     @FXML
     private Button btnSearch;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colSerialNumber.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
-        colValue.setCellValueFactory(new PropertyValueFactory<>("value"));
+    @FXML
+    public void btnAddClicked() {
+        String name = txtNewItemName.getText();
+        String serialNumber = txtNewItemSerialNumber.getText();
+        try{
+            Double value = parseDouble(txtNewItemValue.getText());
+            Item newItem = new Item(name, serialNumber, value);
+            appModel.getInventory().addItem(newItem);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
 
         if (!appModel.getInventory().item.isEmpty()) {
             tableView.setItems(getListForTable(appModel.getInventory()));
-            tableView.setEditable(true);
+        }
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        tableView.setEditable(true);
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colName.setCellFactory(TextFieldTableCell.forTableColumn());
+        colName.setOnEditCommit(event -> event.getTableView().getItems().get(event.getTablePosition().getRow()).setName(event.getNewValue()));
+        colSerialNumber.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
+        colSerialNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        colSerialNumber.setOnEditCommit(event -> event.getTableView().getItems().get(event.getTablePosition().getRow()).setSerialNumber(event.getNewValue()));
+        colValue.setCellValueFactory(new PropertyValueFactory<>("value"));
+        colValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        colValue.setOnEditCommit(event -> event.getTableView().getItems().get(event.getTablePosition().getRow()).setValue(event.getNewValue()));
+
+        if (!appModel.getInventory().item.isEmpty()) {
+            tableView.setItems(getListForTable(appModel.getInventory()));
         }
     }
 
