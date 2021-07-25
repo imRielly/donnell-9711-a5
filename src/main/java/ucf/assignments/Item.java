@@ -43,6 +43,10 @@ public class Item {
         this.name.set(name);
     }
 
+    public void setNameProperty(SimpleStringProperty name){
+        this.name = name;
+    }
+
     public String getSerialNumber() {
         return serialNumber.get();
     }
