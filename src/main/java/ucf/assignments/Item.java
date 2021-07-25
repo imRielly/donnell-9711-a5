@@ -10,10 +10,15 @@ package ucf.assignments;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.text.DecimalFormat;
+
 public class Item {
     SimpleStringProperty name;
     SimpleStringProperty serialNumber;
     SimpleDoubleProperty value;
+
+
+    DecimalFormat currency = new DecimalFormat("#.00");
 
     public Item(){
         this("","",0.00);

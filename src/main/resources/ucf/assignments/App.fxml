@@ -17,7 +17,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.AppController">
    <center>
-      <TableView fx:id="tableView" editable="true" prefHeight="276.0" prefWidth="611.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" editable="true" onKeyPressed="#deleteRow" prefHeight="276.0" prefWidth="611.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colName" prefWidth="311.0" text="Name" />
           <TableColumn fx:id="colSerialNumber" minWidth="0.0" prefWidth="170.0" text="Serial Number" />
@@ -28,17 +28,16 @@
    <bottom>
       <HBox prefHeight="89.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <VBox prefHeight="89.0" prefWidth="627.0">
-            <Label fx:id="lblAddInventoryItem" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0"
-                   prefWidth="627.0" text="Add Inventory Item" underline="true">
+            <Label fx:id="lblAddInventoryItem" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="627.0" text="Add Inventory Item" underline="true">
                <font>
-                  <Font name="System Bold" size="23.0"/>
+                  <Font name="System Bold" size="23.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <TextField fx:id="txtNewItemName" promptText="New Item Name"/>
-               <TextField fx:id="txtNewItemSerialNumber" promptText="New Item Serial Number"/>
-               <TextField fx:id="txtNewItemValue" promptText="New Item Value (0.00)"/>
-               <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddClicked" text="Add"/>
+               <TextField fx:id="txtNewItemName" promptText="New Item Name" />
+               <TextField fx:id="txtNewItemSerialNumber" promptText="New Item Serial Number" />
+               <TextField fx:id="txtNewItemValue" promptText="New Item Value (0.00)" />
+               <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddClicked" text="Add" />
             </HBox>
          </VBox>
       </HBox>
@@ -47,20 +46,19 @@
       <VBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <HBox prefHeight="100.0" prefWidth="200.0">
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="341.0" spacing="10.0">
-               <Button fx:id="btnLoad" mnemonicParsing="false" text="Load"/>
-               <Button fx:id="btnSaveTSV" mnemonicParsing="false" text="Save as TSV"/>
-               <Button fx:id="btnSaveHTML" mnemonicParsing="false" text="Save as HTML"/>
-               <Button fx:id="btnSaveJSON" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0"
-                       text="Save as JSON"/>
+               <Button fx:id="btnLoad" mnemonicParsing="false" text="Load" />
+               <Button fx:id="btnSaveTSV" mnemonicParsing="false" text="Save as TSV" />
+               <Button fx:id="btnSaveHTML" mnemonicParsing="false" text="Save as HTML" />
+               <Button fx:id="btnSaveJSON" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Save as JSON" />
             </HBox>
             <HBox alignment="CENTER" prefHeight="33.0" prefWidth="272.0" spacing="10.0">
                <Label text="Search">
                   <font>
-                     <Font name="System Bold" size="13.0"/>
+                     <Font name="System Bold" size="13.0" />
                   </font>
                </Label>
-               <TextField fx:id="txtSearch" promptText="Name or Serial Number"/>
-               <Button fx:id="btnSearch" mnemonicParsing="false" text="Search"/>
+               <TextField fx:id="txtSearch" promptText="Name or Serial Number" />
+               <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchClicked" text="Search" />
             </HBox>
          </HBox>
       </VBox>

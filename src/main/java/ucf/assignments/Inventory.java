@@ -36,4 +36,8 @@ public class Inventory {
     public void removeItem(Item item){
         this.getInventory().remove(item);
     }
+
+    public void removeItemBySN(String sn) {
+        this.getInventory().removeIf(i -> sn.equalsIgnoreCase(i.serialNumber.getValueSafe()));
+    }
 }
