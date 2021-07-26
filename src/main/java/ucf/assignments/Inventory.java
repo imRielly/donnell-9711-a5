@@ -21,7 +21,7 @@ public class Inventory {
         this.item = inventory;
     }
 
-    public Set<Item> getInventory() {
+    public Set<Item> getInventoryItems() {
         return item;
     }
 
@@ -30,14 +30,14 @@ public class Inventory {
     }
 
     public void addItem(Item item){
-        this.getInventory().add(item);
+        this.getInventoryItems().add(item);
     }
 
     public void removeItem(Item item){
-        this.getInventory().remove(item);
+        this.getInventoryItems().remove(item);
     }
 
     public void removeItemBySN(String sn) {
-        this.getInventory().removeIf(i -> sn.equalsIgnoreCase(i.serialNumber.getValueSafe()));
+        this.getInventoryItems().removeIf(i -> sn.equalsIgnoreCase(i.serialNumber.getValueSafe()));
     }
 }

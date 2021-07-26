@@ -19,22 +19,43 @@ class App {
 
 class AppController {
     appModel: AppModel
+    fileChooser: FileChooser
 
     tableView: TableView
-    colName: TableColumn<Item, SimpleStringProperty>
-    colSerialNumber: TableColumn<Item, SimpleStringProperty>
-    colValue: TableColumn<Item, SimpleDoubleProperty>
+    colName: TableColumn<Item, String>
+    colSerialNumber: TableColumn<Item, String>
+    colValue: TableColumn<Item, Double>
 
-    inventoryView: ObservableList
+    lblAddInventoryItem: Label
 
     txtSearch: TextField
     txtNewItemName: TextField
     txtNewItemSerialNumber: TextField
     txtNewItemValue: TextField
 
+    btnAdd: Button
+    btnLoad: Button
+    btnSave: Button
+    txtSearch: TextField
+    btnSearch: Button
+
+    btnAddClicked()
+    btnSearchClicked()
+
+    initialize()
+
+    loadList()
+    getListForTable()
+
     validateName()
     validateSerialNumber()
+    duplicateSerialAlert()
     validateValue()
+
+    deleteRow()
+
+    btnLoadClicked()
+    btnSaveClicked()
 
 }
 
@@ -47,6 +68,11 @@ class AppModel {
     getTSV()
     getHTML()
     getJSON()
+
+    loadFile()
+    loadTSV()
+    loadHTML()
+    loadJSON()
 }
 
 class Inventory {
@@ -57,6 +83,7 @@ class Inventory {
 
     addItem()
     removeItem()
+    removeItemBySN()
 }
 
 class Item {

@@ -27,7 +27,7 @@ public class App extends Application {
             Scene scene = new Scene(root);
 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Inventory Manager - brought to you by Rielly!");
+            primaryStage.setTitle("Inventory Manager");
             primaryStage.show();
         }catch (IOException e){
             e.printStackTrace();

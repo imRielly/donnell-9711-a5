@@ -40,24 +40,12 @@ public class Item {
         return name.get();
     }
 
-    public SimpleStringProperty nameProperty() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name.set(name);
     }
 
-    public void setNameProperty(SimpleStringProperty name){
-        this.name = name;
-    }
-
     public String getSerialNumber() {
         return serialNumber.get();
-    }
-
-    public SimpleStringProperty serialNumberProperty() {
-        return serialNumber;
     }
 
     public void setSerialNumber(String serialNumber) {
@@ -66,10 +54,6 @@ public class Item {
 
     public double getValue() {
         return value.get();
-    }
-
-    public SimpleDoubleProperty valueProperty() {
-        return value;
     }
 
     public void setValue(double value) {

@@ -45,19 +45,17 @@
    <top>
       <VBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <HBox prefHeight="100.0" prefWidth="200.0">
-            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="341.0" spacing="10.0">
-               <Button fx:id="btnLoad" mnemonicParsing="false" text="Load" />
-               <Button fx:id="btnSaveTSV" mnemonicParsing="false" text="Save as TSV" />
-               <Button fx:id="btnSaveHTML" mnemonicParsing="false" text="Save as HTML" />
-               <Button fx:id="btnSaveJSON" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Save as JSON" />
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="170.0" spacing="10.0">
+               <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadClicked" text="Load.." />
+               <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveClicked" text="Save.." />
             </HBox>
-            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="272.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="432.0" spacing="10.0">
                <Label text="Search">
                   <font>
                      <Font name="System Bold" size="13.0" />
                   </font>
                </Label>
-               <TextField fx:id="txtSearch" promptText="Name or Serial Number" />
+               <TextField fx:id="txtSearch" prefHeight="25.0" prefWidth="234.0" promptText="Name or Serial Number" />
                <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchClicked" text="Search" />
             </HBox>
          </HBox>
